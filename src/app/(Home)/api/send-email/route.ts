@@ -37,13 +37,17 @@ export async function POST(request: NextRequest) {
       { message: "Email sent successfully" },
       { status: 200 }
     );
-  } catch (error) {
-    console.error("Failed to send email:", error.message);
+  } catch (error: unknown) {
+    // const errorMessage =
+    //   (error as Error).message || "An unknown error occurred";
+
+    // console.error("Failed to send email:", error.message);
     // return NextResponse.json(
     //   { message: "Failed to send email", error },
     //   { status: 500 }
     return NextResponse.json({
-      error: error.message,
+      // error: error.message,
+      error: error as string,
     });
   }
 }

@@ -35,7 +35,8 @@ interface BlogPost {
 export default function BlogPage() {
   const router = useRouter();
   // const navigate = useNavigate();
-  const [otpArray, setOtpArray] = useState([]);
+  // const [otpArray, setOtpArray] = useState([]);
+  const [otpArray, setOtpArray] = useState<string[]>([]);
 
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
@@ -48,7 +49,7 @@ export default function BlogPage() {
   useEffect(() => {
     fetchPosts();
   }, []);
-  function generateRandomNumber(length) {
+  function generateRandomNumber(length: number) {
     const characters = "0123456789";
     let result = "";
     for (let i = 0; i < length; i++) {
@@ -87,7 +88,7 @@ export default function BlogPage() {
     // Logic to send OTP to the entered email
     // POST(email, otpp);
     const otpp = generateRandomNumber(6);
-    setOtpArray((prevArray) => [...prevArray, otpp]);
+    setOtpArray((prevArray) => [...prevArray, otpp] as string[]);
 
     try {
       const response = await axios.post("/api/send-email", {

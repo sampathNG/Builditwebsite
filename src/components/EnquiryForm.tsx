@@ -100,9 +100,9 @@ const EnquiryForm: React.FC = () => {
   const [isOtpWindowOpen, setIsOtpWindowOpen] = useState(false);
   const [isOtpSent, setIsOtpSent] = useState(false);
   const [isOtpVerified, setIsOtpVerified] = useState(false);
-  const [otpArray, setOtpArray] = useState([]);
+  const [otpArray, setOtpArray] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
-  function generateRandomNumber(length) {
+  function generateRandomNumber(length: number) {
     const characters = "0123456789";
     let result = "";
     for (let i = 0; i < length; i++) {

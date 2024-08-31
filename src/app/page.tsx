@@ -114,51 +114,6 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
-  const handleSendOtp = async () => {
-    // Logic to send OTP to the entered email
-    // POST(email, otpp);
-    const otpp = generateRandomNumber(6);
-    setOtpArray((prevArray) => [...prevArray, otpp]);
-
-    try {
-      const response = await axios.post("/api/send-email", {
-        email,
-        otpp,
-      });
-
-      console.log(response.data);
-      setIsOtpSent(true);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleVerifyOtp = async () => {
-    const lastOtp = otpArray[otpArray.length - 1];
-
-    // Logic to verify OTP
-    if (otp === lastOtp) {
-      console.log("otp verified");
-      setEmail("");
-      setOtp("");
-      // Example OTP
-      setIsOtpVerified(true);
-      setIsDialogOpen(false);
-      // Navigate to blog creation page
-    } else {
-      console.log("otp not verified");
-      setEmail("");
-      setOtp("");
-      setIsOtpVerified(true);
-      setIsDialogOpen(false);
-      toast({
-        title: "Error",
-        description: "Invalid OTP. Please try again.",
-        variant: "destructive",
-      });
-      alert("Incorrect Otp . Please try again.");
-    }
-  };
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <section className="relative min-h-screen w-full overflow-hidden flex flex-col">
