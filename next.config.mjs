@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "standalone",
+
+  images: {
+    loader: "imgix",
+    path: "",
+  },
+  assetPrefix: "",
   images: {
     remotePatterns: [
       {

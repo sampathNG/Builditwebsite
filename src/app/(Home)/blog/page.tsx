@@ -46,6 +46,7 @@ export default function BlogPage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isOtpSent, setIsOtpSent] = useState(false);
   const [isOtpVerified, setIsOtpVerified] = useState(false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetchPosts();
   }, []);

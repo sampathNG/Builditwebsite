@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI: string | undefined = process.env.MONGODB_URI;
+// const MONGODB_URI: string | undefined = process.env.MONGODB_URI;
+const MONGODB_URI: string =
+  "mongodb+srv://nikhilsahni321:rajni.surender@cluster1.dhdvprj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1";
 
 if (!MONGODB_URI) {
   throw new Error(

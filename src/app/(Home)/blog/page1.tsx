@@ -36,7 +36,7 @@ export default function BlogPage() {
     setIsOpen(false);
   };
   const { toast } = useToast();
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetchPosts();
   }, []);

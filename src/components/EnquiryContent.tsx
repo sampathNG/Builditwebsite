@@ -32,7 +32,7 @@ export default function EnquiriesContent() {
   const [enquiries, setEnquiries] = useState<Enquiry[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetchEnquiries();
   }, []);
